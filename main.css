@@ -52,6 +52,7 @@ body{
         background-color: rgb(0, 0, 58);
         width: 40rem;
         height: 40rem;
+        z-index: -20;
 }
 
 .left-arrow, .right-arrow{
@@ -84,9 +85,19 @@ body{
     top: 4rem;
 }
 
-.object-container i{
+.icon-container i{
     font-size: 150px;
     position: relative;
     left: 12rem;
     top: 12rem;
+    z-index: -10;
+    opacity: 10%;
+}
+
+.active {
+    z-index: 10;
+    background-color: rgb(128, 128, 128);
+    opacity: 100%;
+    
+
 }
