@@ -1,13 +1,16 @@
-const rightArrow = document.getElementById('right-arrow');
+const leftArrow = document.getElementById('left-arrow');
+const activeImg = document.querySelector(".active")
+const nextImg = activeImg.nextElementSibling;
 
-// Handle right click
 
-rightArrow.onclick = () =>{
-    const activeImg = document.querySelector(i.active)
-    const nextImg = activeImg.nextElementSibling;
+// Handle left click
 
-    if(activeImg && nextImg){
-        activeImg.classList.remove('active');
-        nextImg.classList.add('active');
-    }
-};
+leftArrow.addEventListener('click', function(){  //Left arrow button clicked
+    
+    
+    activeImg.classList.remove("active");       //
+    nextImg.classList.add("active");
+    
+    return nextImg
+    
+});
