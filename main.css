@@ -100,12 +100,15 @@ body{
     display: none;
 }
 
-.active {
+.active{
     z-index: 10;
-    display: flex;
+    display: inline-block;
     font-size: 200px;
     position: relative;
     left: 9rem;
     top: 10rem;
 
 }
+
+
+
