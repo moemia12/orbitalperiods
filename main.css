@@ -100,9 +100,9 @@ body{
     display: none;
 }
 
-.active{
+#active{
     z-index: 10;
-    display: inline-block;
+    display: flex;
     font-size: 200px;
     position: relative;
     left: 9rem;
@@ -110,5 +110,8 @@ body{
 
 }
 
+.icon-container i{
+    display: none;
+}
 
 

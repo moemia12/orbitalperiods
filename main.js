@@ -1,24 +1,29 @@
-$(document).ready(function(){
-    $(".right-arrow").on('click', function(){
-        let currentImg = $('.active');
-        let nextImg = currentImg.next();
+var icons = [...document.querySelectorAll('.icon-container .fa')];
 
-        if(nextImg.length){
-            currentImg.removeClass('active').css('z-index', -10);
-            nextImg.addClass('active').css('z-index', 10);
-        }
-    
-    })
+function adjustActive (adjustment) {
+  var current = icons.find(it => it.id === 'active');
+  var currentIndex = icons.indexOf(current);
+  var nextIndex = (currentIndex + adjustment) % icons.length;
+  
+  if (nextIndex < 0) nextIndex = icons.length - 1;
+  
+  current.removeAttribute('id');
+  icons[nextIndex].id = 'active';
+}
 
-    $(".left-arrow").on('click', function(){
-        let currentImg = $('.active');
-        let prevImg = currentImg.prev();
+document.querySelector('#left-arrow').addEventListener('click', e => adjustActive(-1));
+document.querySelector('#right-arrow').addEventListener('click', e => adjustActive(1));
 
-        if(prevImg.length){
-            currentImg.removeClass('active').css('z-index', -10);
-            prevImg.addClass('active').css('z-index', 10);
-        }
-    
-    })
-})
+
+let earth = 7917.5
+let answerContainer = document.getElementById("answer-container")
+
+let findOrbitalPeriod = () =>{
+    if(document.getElementById('right-arrow').clicked == true){
+        let orbitalPeriod = earth/ current; 
+        return answerContainer.innerHTML(orbitalPeriod.value)
+    }
+ }
+
+
 
