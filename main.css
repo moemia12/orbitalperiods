@@ -43,6 +43,18 @@ body{
     background-color: rgb(0, 0, 58);
     width: 40rem;
     height: 40rem;
+    text-align: center;
+    line-height: 10rem;
+    font-size: 80px;
+    overflow-wrap:break-word;
+    word-wrap: break-word;
+}
+
+.answer-container h3{
+    font-size: 40px;
+    position: relative;
+    top: 20rem;
+    
 }
 
 .object-container{

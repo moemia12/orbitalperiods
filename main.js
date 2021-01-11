@@ -1,5 +1,5 @@
 // Declaring Earth, Icon and Answer Container variables
-let earth = 7917.5;               
+               
 let icons = [...document.querySelectorAll('.icon-container .fa')];
 let answerContainer = document.getElementById("answer-container");
 
@@ -10,13 +10,19 @@ function adjustActive (adjustment) {
   var nextIndex = (currentIndex + adjustment) % icons.length;
 
   if (nextIndex < 0) nextIndex = icons.length - 1;
-  console.log(current);
   current.removeAttribute('id');
   icons[nextIndex].id = 'active'; 
-  let orbitalPeriod = earth / current.getAttribute("value"); 
-  answerContainer.innerHTML = orbitalPeriod
- 
+
+// Action to find Orbital Period
+  let earth = 7917.5;  
+  let nextElement = document.getElementById("active");
+  let nextElements = nextElement.getAttribute("value")
+  let orbitalPeriod = earth / nextElements;
+
+  answerContainer.innerHTML = orbitalPeriod.toFixed(2) 
+
 }
 
 document.querySelector('#left-arrow').addEventListener('click', e => adjustActive(-1));
 document.querySelector('#right-arrow').addEventListener('click', e => adjustActive(1));
+
