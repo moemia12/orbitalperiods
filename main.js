@@ -26,3 +26,13 @@ function adjustActive (adjustment) {
 document.querySelector('#left-arrow').addEventListener('click', e => adjustActive(-1));
 document.querySelector('#right-arrow').addEventListener('click', e => adjustActive(1));
 
+// Function to create Planets Container
+
+function adjustActive (adjustment) { 
+  var current = icons.find(it => it.id === 'active'); 
+  var currentIndex = icons.indexOf(current);
+  var nextIndex = (currentIndex + adjustment) % icons.length;
+
+  if (nextIndex < 0) nextIndex = icons.length - 1;
+  current.removeAttribute('id');
+  icons[nextIndex].id = 'active'; }
