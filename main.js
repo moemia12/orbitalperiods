@@ -2,6 +2,7 @@
                
 let icons = [...document.querySelectorAll('.icon-container .fa')];
 let answerContainer = document.getElementById("answer-container");
+let answerDiv = document.getElementById("answer-div");
 
 //Function to slide icons
 function adjustActive (adjustment) { 
@@ -19,7 +20,7 @@ function adjustActive (adjustment) {
   let nextElements = nextElement.getAttribute("value")
   let orbitalPeriod = earth / nextElements;
 
-  answerContainer.innerHTML = orbitalPeriod.toFixed(2) 
+  answerDiv.innerHTML = orbitalPeriod.toFixed(2);
 
 }
 
@@ -28,7 +29,7 @@ document.querySelector('#right-arrow').addEventListener('click', e => adjustActi
 
 // Function to create Planets Container
 
-function adjustActive (adjustment) { 
+function adjustActiv (adjustment) { 
   var current = icons.find(it => it.id === 'active'); 
   var currentIndex = icons.indexOf(current);
   var nextIndex = (currentIndex + adjustment) % icons.length;

@@ -52,10 +52,17 @@ body{
 
 .answer-container h3{
     font-size: 40px;
-    position: relative;
+    position: absolute;
     top: 20rem;
+    left: 8rem;
     
 }
+
+#answer-div{
+    position: relative;
+    top: 10rem;
+}
+
 
 .object-container{
         position: relative;
