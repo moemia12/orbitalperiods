@@ -37,3 +37,14 @@ function adjustActiv (adjustment) {
   if (nextIndex < 0) nextIndex = icons.length - 1;
   current.removeAttribute('id');
   icons[nextIndex].id = 'active'; }
+
+  // Function to create Planets Container
+
+function adjustActiv (adjustment) { 
+  var current = icons.find(it => it.id === 'active'); 
+  var currentIndex = icons.indexOf(current);
+  var nextIndex = (currentIndex + adjustment) % icons.length;
+
+  if (nextIndex < 0) nextIndex = icons.length - 1;
+  current.removeAttribute('id');
+  icons[nextIndex].id = 'active'; }
