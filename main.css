@@ -83,6 +83,14 @@ body{
         height: 40rem;
 }
 
+.icon-container p{
+    font-size: 50px;
+    position: relative;
+    top: 22rem;
+    right: 22rem;
+    font-family: sans-serif;
+    text-align: center;
+}
 .icon-container i{
     display: none;
 }
@@ -147,5 +155,6 @@ body{
     background-color: rgb(30,30,30);
 
 }
+
 
 

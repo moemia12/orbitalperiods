@@ -4,7 +4,20 @@ let icons = [...document.querySelectorAll('.icon-container .fa')];
 let answerContainer = document.getElementById("answer-container");
 let answerDiv = document.getElementById("answer-div");
 let planetImgs = [...document.querySelectorAll(".planet-container img")];
-let currentPlanet = document.getElementById("active-planet");
+
+
+//Function to slide Planet
+function adjustActivePlanet (adjustment) { 
+  var current = planetImgs.find(it => it.id === 'active-planet'); 
+  var currentIndex = planetImgs.indexOf(current);
+  var nextIndex = (currentIndex + adjustment) % icons.length;
+
+  if (nextIndex < 0) nextIndex = planetImgs.length - 1;
+  current.removeAttribute('id');
+  planetImgs[nextIndex].id = 'active-planet'; 
+
+
+  }
 
     //Function to slide icons
      function adjustActive (adjustment) { 
@@ -17,31 +30,20 @@ let currentPlanet = document.getElementById("active-planet");
     icons[nextIndex].id = 'active'; 
 
     // Action to find Orbital Period
-    let planet = currentPlanet.dataset.radius;  
+    let currentPlanet = document.getElementById("active-planet");
+    let planetRadius = currentPlanet.dataset.radius;
+    console.log(planetRadius)
     let nextElement = document.getElementById("active");
-    let nextElements = nextElement.getAttribute("value")
-    let orbitalPeriod = planet / nextElements;
+    let vehicleSpeed = nextElement.getAttribute("value")
+    let orbitalPeriod = planetRadius / vehicleSpeed;
 
     answerDiv.innerHTML = orbitalPeriod.toFixed(2);
 
-    }
+     }
 
-  // Function to slide icons
+// Arrow Buttons
 
-  function adjustActivePlanet (adjustment) { 
-  var current = planetImgs.find(it => it.id === 'active-planet'); 
-  var currentIndex = planetImgs.indexOf(current);
-  var nextIndex = (currentIndex + adjustment) % icons.length;
-
-  if (nextIndex < 0) nextIndex = planetImgs.length - 1;
-  current.removeAttribute('id');
-  planetImgs[nextIndex].id = 'active-planet'; 
-
-  }
-
-
-
-document.querySelector('#left-arrow').addEventListener('click', e => adjustActive(-1));
-document.querySelector('#right-arrow').addEventListener('click', e => adjustActive(1));
-document.querySelector('#left-arrow-planet').addEventListener('click', e => adjustActivePlanet(-1));
-document.querySelector('#right-arrow-planet').addEventListener('click', e => adjustActivePlanet(1));
+document.querySelector('#left-arrow').addEventListener('click', e => adjustActive(-1), adjustActivePlanet(-1) );
+document.querySelector('#right-arrow').addEventListener('click', e => adjustActive(1), adjustActivePlanet(1));
+document.querySelector('#left-arrow-planet').addEventListener('click', e => adjustActivePlanet(-1),adjustActive(-1) );
+document.querySelector('#right-arrow-planet').addEventListener('click', e => adjustActivePlanet(1), adjustActive(1));
